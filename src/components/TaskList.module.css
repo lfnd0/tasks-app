@@ -1,0 +1,9 @@
+.taskList {
+  width: 46rem;
+  margin-top: 5.688rem;
+  margin-left: 22rem;
+  margin-right: 22rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
