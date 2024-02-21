@@ -1,9 +1,33 @@
 .taskList {
-  width: 46rem;
-  margin-top: 5.688rem;
-  margin-left: 22rem;
-  margin-right: 22rem;
+  width: 100%;
+  margin-top: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.taskList aside {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem
+}
+
+.createdTasks {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--blue);
+}
+
+.completedTasks {
+  font-size: 0.875rem;
+  font-weight: bold;
+  color: var(--purple);
+}
+
+.counters {
+  padding: 0.125rem 0.5rem;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  color: var(--gray-200);
+  background-color: var(--gray-400);
 }

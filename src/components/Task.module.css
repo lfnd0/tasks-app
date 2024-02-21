@@ -1,10 +1,8 @@
 .task {
   width: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 10.813rem;
-  position: absolute;
-  display: flex;
 }
 
 .taskForm input {
@@ -26,14 +24,21 @@
 .taskForm button {
   width: 5.625rem;
   height: 3.25rem;
-  font-size: 0.875rem;
   border-radius: 0.5rem;
-  font-weight: bold;
   border: none;
   cursor: pointer;
   background: var(--blue-dark);
-  color: var(--gray-100);
   transition: background-color 0.2s;
+}
+
+.taskForm button span {
+  font-weight: bold;
+  font-size: 0.875rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  color: var(--gray-100);
 }
 
 .taskForm button:hover {

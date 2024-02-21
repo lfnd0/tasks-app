@@ -7,11 +7,14 @@ import { TaskList } from './components/TaskList'
 export function App() {
   return (
     <div>
+      <Header />
+
       <div className={styles.wrapper}>
-        <Header />
-        <Task />
+        <main>
+          <Task />
+          <TaskList />
+        </main>
       </div>
-      <TaskList />
     </div>
   )
 }

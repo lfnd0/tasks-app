@@ -1,10 +1,33 @@
 import styles from './TaskList.module.css'
 
 export function TaskList() {
-  return(
+  return (
     <div className={styles.taskList}>
-      <p>Tarefas criadas</p>
-      <p>Concluídas</p>
+      <aside>
+        <p
+          className={styles.createdTasks}
+        >
+          Tarefas criadas
+        </p>
+        <span
+          className={styles.counters}
+        >
+          0
+        </span>
+      </aside>
+
+      <aside>
+        <p
+          className={styles.completedTasks}
+        >
+          Concluídas
+        </p>
+        <span
+          className={styles.counters}
+        >
+          0
+        </span>
+      </aside>
     </div>
   )
 }
