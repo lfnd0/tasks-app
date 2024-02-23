@@ -1,34 +1,70 @@
-import { PlusCircle } from '@phosphor-icons/react'
+import { Check, Trash } from '@phosphor-icons/react'
 import styles from './Task.module.css'
-import { FormEvent } from 'react'
 
-export function Task() {
-  function handleCreateNewTask(event: FormEvent) {
-    event.preventDefault()
+export interface ITask {
+  id: number
+  text: string
+  isDone: boolean
+}
+
+interface TaskProps {
+  task: ITask
+  onRemoveTask: (taskId: number) => void
+  onCompleteTask: (taskId: number) => void
+}
+
+export function Task({ task, onRemoveTask, onCompleteTask }: TaskProps) {
+  function handleRemoveTask() {
+    onRemoveTask(task.id)
   }
 
+  function handleCompleteTask() {
+    onCompleteTask(task.id)
+  }
+
+  const isTaskDoneClassName = task.isDone ?
+    styles.checkboxChecked : styles.checkboxUnchecked
+
+  const isTextDoneClassName = task.isDone ?
+    styles.textChecked : styles.textUnchecked
+
   return (
-    <article className={styles.task}>
-      <header>
-        <form
-          className={styles.taskForm}
-          onSubmit={handleCreateNewTask}
+    <div className={styles.container}>
+      <div>
+        <label
+          htmlFor='checkbox'
+          onClick={handleCompleteTask}
         >
           <input
-            type='text'
-            name='task'
-            placeholder='Adicione uma nova tarefa'
-            required
+            readOnly
+            type='checkbox'
+            name='isDone'
           />
-          <button
-            type='submit'
+          <span
+            className={`${styles.checkbox} ${isTaskDoneClassName}`}
           >
-            <span>
-              Criar <PlusCircle size={16} color='#F2F2F2' weight='bold' />
-            </span>
-          </button>
-        </form>
-      </header>
-    </article>
+            {
+              task.isDone &&
+              <Check
+                size={12}
+                color='#F2F2F2'
+              />
+            }
+          </span>
+          <p
+            className={`${styles.text} ${isTextDoneClassName}`}
+          >
+            {task.text}
+          </p>
+        </label>
+      </div>
+
+      <button
+        onClick={handleRemoveTask}
+        title='Remover tarefa'
+      >
+        <Trash size={16} color='#808080' />
+      </button>
+    </div>
   )
 }
